@@ -1,10 +1,28 @@
-import {cleanConsole, createAll} from './data';
+import { cleanConsole, createAll } from './data';
+import { exampleOne } from './example-1'
 
 const companies = createAll();
 
 cleanConsole(3, companies);
 
-console.log('---- EXAMPLE 3 --- ', companies);
+export const validateToUpper = (companies) => {
+    companies.map(company => {
+        if (company.name.charAt(0) !== company.name.charAt(0).toUpperCase()) {
+            return false;
+        }
+        company.users.map(user => {
+            if (user.firstName.charAt(0) !== user.firstName.charAt(0).toUpperCase() || user.lastName.charAt(0) !== user.lastName.charAt(0).toUpperCase()) {
+                return false
+            }
+        });
+        
+    })
+
+    return true;
+}
+
+
+console.log('---- EXAMPLE 3 --- ', validateToUpper(exampleOne(companies)));
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
