@@ -1,9 +1,20 @@
 import {cleanConsole, createAll} from './data';
+import {exampleFour} from './example-4'
 const companies = createAll();
 
 cleanConsole(5, companies);
 
-console.log('---- EXAMPLE 5 --- ', companies);
+
+
+export const exampleFive = (users) => {
+    let size = users.length
+    let average = users.reduce((reduce, user) => reduce + user.age, 0) / users.length
+    let hasCar = users.filter(user => user.car).length
+    let averageWithCar = users.filter(user => user.car).reduce((reduce, user) => reduce + user.age, 0) / users.filter(user => user.car).length
+
+    return {size, average, hasCar, averageWithCar};
+}
+console.log('---- EXAMPLE 5 --- ', exampleFive(exampleFour(companies)));
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
 
