@@ -3,7 +3,15 @@ const companies = createAll();
 
 cleanConsole(2, companies);
 
-console.log('---- EXAMPLE 2 --- ', companies);
+export const userHasCar = (companies, hasCar) => {
+    return companies.map(company=>{
+        company.users = company.users.filter(user=>user.car === hasCar)
+        company.usersLength = company.users.length
+        return company
+    })
+}
+
+console.log('---- EXAMPLE 2 --- ', userHasCar(companies, true));
 
 
 // -----------------------------------------------------------------------------
