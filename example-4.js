@@ -2,7 +2,16 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(4, companies);
-console.log('---- EXAMPLE 4 --- ', companies);
+
+export const exampleFour = (companies) => {
+    let users = [];
+    companies.map((company) => {
+      company.users.map((user) => (users.push({...user, company: company.name})));
+    });
+  
+    return users.sort((a, b) => (a.age > b.age)?-1:(a.age < b.age)?1:0);
+  };
+console.log('---- EXAMPLE 4 --- ', exampleFour(companies));
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
