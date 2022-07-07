@@ -1,9 +1,20 @@
 import {cleanConsole, createAll} from './data';
+import {exampleFour} from './example-4'
 
 const companies = createAll();
 
 cleanConsole(6, companies);
-console.log('---- EXAMPLE 6 --- ', companies);
+
+export const concatenation = (companies) => {
+  const users = {};
+  exampleFour(companies).map((user) => {
+    users[user.firstName + user.lastName + user.age] = user.car;
+  });
+
+  return users;
+}
+
+console.log('---- EXAMPLE 6 --- ', concatenation(companies));
 
 
 // -----------------------------------------------------------------------------
